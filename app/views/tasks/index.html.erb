@@ -1,1 +1,21 @@
-<%= form_for :tasks do |f| %>
+
+<table>
+  <tr>
+    <th>These are your tasks:</th>
+    <th>Points:</th>
+    <th colspan="2"></th>
+    </tr>
+
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.assignment %></td>
+    <td><select name="points_id" id="points_id">
+        <option value="0">0</option>
+        <option value=".5">.5</option>
+        <option value="1">1</option>
+      </select>
+    </td>
+  </tr>
+  <% end %>
+</table>

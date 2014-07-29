@@ -1,0 +1,13 @@
+<%= form_for :tasks do |f| %>
+  <h2>Add tasks you'd like to work on, order doesn't matter:</h2>
+  <table>
+    <tr>
+      <td colspan="3"></td>
+      <td><%= f.text_field :assignment %></td>
+      <td><%= link_to "Edit", edit_task_path(:task) %></td>
+    </tr>
+  <%= f.submit %>
+
+<% end %>
+
+</table>

@@ -1,13 +1,21 @@
-<%= form_for :tasks do |f| %>
+
   <h2>Add tasks you'd like to work on, order doesn't matter:</h2>
+  <%= form_for :tasks, method: "POST", :url => { :action => :create } do |f| %>
   <table>
     <tr>
-      <td colspan="3"></td>
       <td><%= f.text_field :assignment %></td>
-      <td><%= link_to "Edit", edit_task_path(:task) %></td>
     </tr>
-  <%= f.submit %>
-
+    <%= f.submit %>
+  <% end %>
+      <% @tasks.each do |task| %>
+    <tr>
+      <td colspan="4"></td>
+      <td><%= task.assignment %></td>
+      <td><%= link_to "Edit", edit_task_path(:task) %></td>
+      <td><%= link_to 'View', task_path(task) %></td>
+      <td><%= link_to 'Destroy', task_path(task),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
 <% end %>
 
 </table>

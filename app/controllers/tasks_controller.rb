@@ -1,8 +1,5 @@
 class TasksController < ApplicationController
 
-def splash
-end
-
 def add_tasks
   @tasks = Task.all
 end
@@ -13,22 +10,22 @@ end
 def update
   @task = Task.find(params[:id])
   if @task.update(task_params)
-    redirect_to @task
+    redirect_to (@task)
   else
-    render "edit"
+    render :edit
   end
 end
 
 def edit
-  @task = Task.find(params[:id])
+
 end
 
 def new
-  @post = Post.new
+
 end
 
 def show
-  @task = Task.find(params[:id])
+
   end
 
 def create
@@ -37,14 +34,12 @@ def create
 end
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to tasks_path
+
   end
 end
-
 private
   def task_params
     params.require(:task).permit(:assignment, :points)
   end
+
 

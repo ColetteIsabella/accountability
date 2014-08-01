@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   root "tasks#add_tasks"
-    resources :tasks
+    resources :tasks do
+      post "task"
+      post "assignment"
+    end
+
 
 
 

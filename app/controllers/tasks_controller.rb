@@ -4,6 +4,10 @@ def add_tasks
   @tasks = Task.all
 end
 
+def new
+  @task = Task.new
+end
+
 def index
 end
 
@@ -17,11 +21,10 @@ def update
 end
 
 def edit
-
 end
 
 def new
-
+  @task = Task.new
 end
 
 def show
@@ -37,6 +40,7 @@ end
 
   end
 end
+
 private
   def task_params
     params.require(:task).permit(:assignment, :points)
